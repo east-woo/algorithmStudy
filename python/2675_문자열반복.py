@@ -12,8 +12,17 @@
 t = int(input())
 
 for _ in range(t):
+    result = ""
     r, s = map(str, input().split())
+    r = int(r)
     s = list(s)
+
+    for i in range(len(s)):
+        for _ in range(r):
+            result += s[i]
+    print(result)
+
+
 
 
 
