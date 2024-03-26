@@ -7,3 +7,10 @@
 # 출력
 # 직사각형의 네 번째 점의 좌표를 출력한다.
 
+x1, y1 = map(int,input().split())
+x2, y2 = map(int,input().split())
+x3, y3 = map(int,input().split())
+
+print(x1,y1)
+print(x2,y2)
+print(x3,y3)
