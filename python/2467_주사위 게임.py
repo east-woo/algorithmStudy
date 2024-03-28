@@ -18,8 +18,20 @@
 
 n = int(input())
 
-for i in range(3):
-    check = []
-    x,y,z = map(int, input().split())
+max_score = 0
 
-    # 반복문 돌려서 자동으로 값에 넣게 한줄로 하는걸로 바꾸기
+for i in range(n):
+    arr = list(map(int, input().split()))
+
+    if arr[0] == arr[1] == arr[2]:
+        score = 10000 + arr[0] * 1000
+    elif arr[0] == arr[1] or arr[0] == arr[2]:
+        score = 1000 + arr[0] * 100
+    elif arr[1] == arr[2]:
+        score = 1000 + arr[1] * 100
+    else:
+        score = max(arr) * 100
+
+    max_score = max(max_score, score)
+
+print(max_score)
