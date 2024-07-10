@@ -13,6 +13,16 @@
 
 import sys
 
-N = sys.stdin.readline()
+N,K = map(int,sys.stdin.readline().split())
+coins=[int(input()) for _ in range(N)]
+ans = 0
 
-for _ in range(N):
+coins.reverse()
+for coin in coins:
+    ans+=K // coin
+    K %= coin
+
+print(ans)
+
+
+
