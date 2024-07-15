@@ -7,4 +7,20 @@
 # 출력
 # 첫째 줄에 연결 요소의 개수를 출력한다.
 
+import sys
+sys.setrecursionlimit(10**6)
 
+input = sys.stdin.readline
+E,L = map(int, input().split())
+adj = [[0]*E for _ in range(E)]
+
+for _ in range(L):
+    a, b = map(lambda x: x-1, map(int, input().split()))
+    adj[a][b] = adj[b][a] = 1
+
+
+
+ans = 0
+chk = [False] * E
+
+print(chk)
