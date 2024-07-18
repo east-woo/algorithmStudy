@@ -16,7 +16,7 @@ def bfs(start_y, start_x):
     while len(q) > 0:
         y, x = q.popleft()
         chk[y][x] = True
-        print(f"{y}, {x}")
+        print(f"{x}, {y}")
         print(f"Visiting: ({x}, {y})")  # 방문한 좌표 출력
 
         for k in range(4):
@@ -25,5 +25,5 @@ def bfs(start_y, start_x):
             if is_valid_coord(ny, nx) and not chk[ny][nx]:
                 q.append((ny, nx))
                 chk[ny][nx] = True  # 새로운 좌표를 큐에 넣을 때 방문 체크도 함께 해야 함
-                print(f"{ny}, {nx}")
+                print(f"{nx}, {ny}")
 bfs(0, 0)
