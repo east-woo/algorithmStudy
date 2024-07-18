@@ -16,9 +16,7 @@ def bfs(start_y, start_x):
     while len(q) > 0:
         y, x = q.popleft()
         chk[y][x] = True
-        print(f"{x}, {y}")
         print(f"Visiting: ({x}, {y})")  # 방문한 좌표 출력
-
         for k in range(4):
             ny = y + dy[k]
             nx = x + dx[k]
