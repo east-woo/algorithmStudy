@@ -9,18 +9,34 @@
 
 import sys
 sys.setrecursionlimit(10**6)
-
 input = sys.stdin.readline
-E,L = map(int, input().split())
-adj = [[0]*E for _ in range(E)]
+N, M = map(int, input().split())
+# 인접 행렬로 작업
+adj = [[0]*N for _ in range(N)]
 
-for _ in range(L):
-    a, b = map(lambda x: x-1, map(int, input().split()))
-    adj[a][b] = adj[b][a] = 1
+for i in range(M):
+    a,b = map(lambda x:x-1,map(int, input().split()))
+    adj[a][b] = adj[b][a]=1
 
-
-
+chk = [False]*N
 ans = 0
-chk = [False] * E
 
-print(chk)
+for row in adj:
+    print(row)
+
+def dfs(now):
+    for nxt in range(N):
+        if adj[now][nxt] and not chk[nxt]:
+            chk[nxt] = True
+            dfs(nxt)
+
+
+for i in range(N):
+    if not chk[i]:
+        ans += 1
+        chk[i] = True
+        dfs(i)
+
+
+
+#print(ans)
