@@ -10,4 +10,14 @@
 #
 # 출력
 # 첫째 줄에 2×n 크기의 직사각형을 채우는 방법의 수를 10,007로 나눈 나머지를 출력한다.
+mod =10_007
 
+cache = [0]*1001
+
+cache[1]= 1
+cache[2]= 2
+N = int(input())
+for i in range(3, 1001):
+    cache[i]= (cache[i-1]+cache[i-2]) % mod
+
+print(cache[N])
