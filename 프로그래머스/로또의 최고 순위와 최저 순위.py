@@ -48,18 +48,20 @@
 # 최저 순위 번호	0→21	0→22	0→23	0→24	0→26	0→27	0개 번호 일치, 6등
 # 입출력 예 #3
 # 민우가 구매한 로또의 번호와 당첨 번호가 모두 일치하므로, 최고 순위와 최저 순위는 모두 1등입니다.
-lottos=	[0, 0, 0, 0, 0, 0]
-
-win_nums=[38, 19, 20, 40, 15, 25]
 def solution(lottos, win_nums):
-    answer = []
-    lottos_set = set(lottos)
-    win_nums_set = set(win_nums)
-    lottos_list = list(lottos)
-    ok = len((lottos_set - win_nums_set))
+    rank = [6, 6, 5, 4, 3, 2, 1]
 
-    answer.append(ok)
-    answer.append(ok+lottos_list.count(0))
-    return answer
+    num_zeros = lottos.count(0)
 
-print(solution(lottos,win_nums))
+    num_matches = len(set(lottos) & set(win_nums))
+
+    max_rank = rank[num_matches + num_zeros]
+    min_rank = rank[num_matches]
+
+    return [max_rank, min_rank]
+
+
+
+print(solution([44, 1, 0, 0, 31, 25], [31, 10, 45, 1, 6, 19]))  # Output: [3, 5]
+print(solution([0, 0, 0, 0, 0, 0], [38, 19, 20, 40, 15, 25]))  # Output: [1, 6]
+print(solution([45, 4, 35, 20, 3, 9], [20, 9, 3, 45, 4, 35]))  # Output: [1, 1]
