@@ -14,9 +14,18 @@
 # 입출력 예 #2
 # 5의 약수는 1, 5입니다. 이를 모두 더하면 6입니다.
 
-n = 12
+n = 100
 def solution(n):
-    sum(i for i in range(1,n+1) if  n % i == 0)
-    return answer
+    divisorsList = []
+
+    for i in range(1, int(n**(1/2)) + 1):
+        print(i)
+        if (n % i == 0):
+            divisorsList.append(i)
+            if ( (i**2) != n) :
+                divisorsList.append(n // i)
+
+    divisorsList.sort()
+    return divisorsList
 
 print(solution(n))
