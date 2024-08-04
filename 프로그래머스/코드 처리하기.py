@@ -39,20 +39,15 @@
 # 따라서 "acbac"를 return 합니다.
 
 def solution(code):
-    answer = ''
-    count = 0
+    ret = ''
     mode = 0
-    for i in code:
-        if i == 0 :
-            mode =0
-        elif i == 1:
-            mode = 1
-        if mode == 0 and count %2==0:
-            answer += i
-        elif mode == 1 and count %2==1:
-            answer += i
-        count += 1
-    return answer
+
+    for idx, char in enumerate(code):
+        if char == '1':
+            mode = 1 - mode  # Toggle the mode
+        else:
+            if (mode == 0 and idx % 2 == 0) or (mode == 1 and idx % 2 == 1):
+                ret += char
 
 
 print(solution("abc1abc1abc"))
