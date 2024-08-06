@@ -31,8 +31,14 @@
 
 def solution(a, d, included):
     answer = 0
-    ap = 0
-    print(len(inlist))
+    for idx, bool in enumerate(included):
+        if bool:
+            answer+=a + (idx*d)
+
     return answer
 
-print(3,4,[true, false, false, true, true])
+
+
+
+
+print(solution(3,4,[True, False, False, True, True]))
