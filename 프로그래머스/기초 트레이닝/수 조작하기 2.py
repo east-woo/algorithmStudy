@@ -33,8 +33,11 @@ def solution(numLog):
                 10:"d",
                 -10:"a"}
 
-    for num in numLog:
-
+    for idx,num in enumerate(numLog):
+        if idx+1==len(numLog):
+            break
+        result = numLog[idx+1]-numLog[idx]
+        answer+=keyboard.get(result)
 
     return answer
 
